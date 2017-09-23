@@ -1,0 +1,20 @@
+{
+  "version": "0.0.1",
+  "name": "avira-weather-test",
+  "manifest_version": 2,
+  "description": "Homework for Avira Companie",
+  "browser_action": {
+    "default_title": "Extension menu",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "16": "img/16/004-sun.png",
+    "32": "img/32/004-sun.png",
+    "128": "img/128/004-sun.png"
+  },
+  "background": {
+    "page": "background.html"
+  },
+  "permissions": [ "geolocation", "contextMenus", "management", "tabs", "storage", "http://api.openweathermap.org/" ],
+  "content_security_policy": "default-src 'self'; script-src 'self' http://localhost:3000 https://localhost:3000 'unsafe-eval'; connect-src http://api.openweathermap.org http://localhost:3000 https://localhost:3000; style-src * 'unsafe-inline' 'self' blob:; img-src 'self' http://api.openweathermap.org data:;"
+}
