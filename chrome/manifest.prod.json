@@ -15,6 +15,6 @@
   "background": {
     "page": "background.html"
   },
-  "permissions": [ "http://api.openweathermap.org/", "geolocation", "contextMenus", "tabs", "storage"],
-  "content_security_policy": "default-src 'self'; script-src 'self' style-src * 'unsafe-inline'; connect-src http://api.openweathermap.org;  img-src 'self' http://api.openweathermap.org data:;"
+  "permissions": [ "geolocation", "contextMenus", "management", "tabs", "storage", "http://api.openweathermap.org/" ],
+  "content_security_policy": "default-src 'self'; script-src 'self' http://localhost:3000 https://localhost:3000 'unsafe-eval'; connect-src http://api.openweathermap.org http://localhost:3000 https://localhost:3000; style-src * 'unsafe-inline' 'self' blob:; img-src 'self' http://api.openweathermap.org data:;"
 }

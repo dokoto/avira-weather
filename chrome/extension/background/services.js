@@ -7,7 +7,8 @@ class Get {
         .then((data) => {
           return {
             temperature: data.main.temp.toFixed(),
-            icon: data.weather[0].icon
+            icon: data.weather[0].icon,
+            all: data
           };
         }
       )

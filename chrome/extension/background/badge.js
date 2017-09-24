@@ -14,7 +14,7 @@ function iconSelector(icon) {
 
   return {
     path: {
-      '16' : `img/16/${iconPath}`,
+      '16': `img/16/${iconPath}`,
       '32': `img/32/${iconPath}`,
       '128': `img/128/${iconPath}`
     }
@@ -24,22 +24,16 @@ function iconSelector(icon) {
 function AsynWeather() {
   navigator.geolocation.getCurrentPosition((position) => {
     Weather.Get.byPosition(position.coords.latitude, position.coords.longitude).then((data) => {
-      console.log(data);
       chrome.browserAction.setIcon(iconSelector(data.icon));
       chrome.browserAction.setBadgeText({ text: data.temperature });
+      chrome.storage.local.set({ state: data.all });
     });
   });
 }
 
 
-chrome.storage.local.get('todos', (obj) => {
-  let todos = obj.todos;
-  if (todos) {
-    todos = JSON.parse(todos);
-  }
-  if (navigator.geolocation) {
-    setInterval(AsynWeather, 5000);
-  } else {
-    console.error('Browser too old');
-  }
-});
+if (navigator.geolocation) {
+  setInterval(AsynWeather, 5000);
+} else {
+  console.error('Browser too old');
+}
